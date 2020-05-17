@@ -3,6 +3,7 @@ package me.study.domain;
 import me.study.domain.discountCondition.PeriodCondition;
 import me.study.domain.discountCondition.SequenceCondition;
 import me.study.domain.discountPolicy.AmountDiscountPolicy;
+import me.study.domain.discountPolicy.NoneDiscountPolicy;
 import me.study.domain.discountPolicy.PercentDiscountPolicy;
 import org.junit.jupiter.api.Test;
 
@@ -36,5 +37,13 @@ class MovieTest {
                 new PeriodCondition(DayOfWeek.THURSDAY, LocalTime.of(10, 0), LocalTime.of(13, 59))));
 
         assertThat(titanic).isInstanceOf(Movie.class);
+
+        Movie starWars = new Movie("스타워즈",
+            Duration.ofMinutes(210),
+            Money.wons(10000),
+            new NoneDiscountPolicy());
+
+        assertThat(starWars).isInstanceOf(Movie.class);
+
     }
 }
