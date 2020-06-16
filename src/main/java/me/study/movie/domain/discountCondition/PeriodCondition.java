@@ -1,6 +1,6 @@
-package me.study.domain.discountCondition;
+package me.study.movie.domain.discountCondition;
 
-import me.study.domain.Screening;
+import me.study.movie.domain.Screening;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;

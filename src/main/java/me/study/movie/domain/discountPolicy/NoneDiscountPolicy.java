@@ -1,7 +1,7 @@
-package me.study.domain.discountPolicy;
+package me.study.movie.domain.discountPolicy;
 
-import me.study.domain.Money;
-import me.study.domain.Screening;
+import me.study.movie.domain.Money;
+import me.study.movie.domain.Screening;
 
 public class NoneDiscountPolicy extends DiscountPolicy {
     @Override

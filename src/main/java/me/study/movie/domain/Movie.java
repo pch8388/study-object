@@ -1,6 +1,6 @@
-package me.study.domain;
+package me.study.movie.domain;
 
-import me.study.domain.discountPolicy.DiscountPolicy;
+import me.study.movie.domain.discountPolicy.DiscountPolicy;
 
 import java.time.Duration;
 

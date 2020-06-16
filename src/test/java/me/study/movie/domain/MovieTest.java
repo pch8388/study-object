@@ -1,10 +1,10 @@
-package me.study.domain;
+package me.study.movie.domain;
 
-import me.study.domain.discountCondition.PeriodCondition;
-import me.study.domain.discountCondition.SequenceCondition;
-import me.study.domain.discountPolicy.AmountDiscountPolicy;
-import me.study.domain.discountPolicy.NoneDiscountPolicy;
-import me.study.domain.discountPolicy.PercentDiscountPolicy;
+import me.study.movie.domain.discountCondition.PeriodCondition;
+import me.study.movie.domain.discountCondition.SequenceCondition;
+import me.study.movie.domain.discountPolicy.AmountDiscountPolicy;
+import me.study.movie.domain.discountPolicy.NoneDiscountPolicy;
+import me.study.movie.domain.discountPolicy.PercentDiscountPolicy;
 import org.junit.jupiter.api.Test;
 
 import java.time.DayOfWeek;

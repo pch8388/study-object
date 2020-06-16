@@ -1,4 +1,4 @@
-package me.study.domain;
+package me.study.movie.domain;
 
 import java.time.OffsetDateTime;
 

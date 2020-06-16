@@ -1,4 +1,4 @@
-package me.study.domain;
+package me.study.movie.domain;
 
 public class Reservation {
     private Customer customer;

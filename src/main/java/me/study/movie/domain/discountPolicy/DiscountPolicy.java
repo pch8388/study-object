@@ -1,8 +1,8 @@
-package me.study.domain.discountPolicy;
+package me.study.movie.domain.discountPolicy;
 
-import me.study.domain.Money;
-import me.study.domain.Screening;
-import me.study.domain.discountCondition.DiscountCondition;
+import me.study.movie.domain.Money;
+import me.study.movie.domain.Screening;
+import me.study.movie.domain.discountCondition.DiscountCondition;
 
 import java.util.ArrayList;
 import java.util.Arrays;
