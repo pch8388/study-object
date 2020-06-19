@@ -10,17 +10,17 @@ import java.util.Stack;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PhoneTest {
+class RegularPhoneTest {
 
 	@Test
 	public void calculateFee() {
-		Phone phone = new Phone(Money.wons(5), Duration.ofSeconds(10), 0.1);
+		Phone phone = new RegularPhone(Money.wons(5), Duration.ofSeconds(10));
 		phone.call(new Call(LocalDateTime.of(2018, 1, 1, 12, 10, 0),
 							LocalDateTime.of(2018, 1, 1, 12, 11, 0)));
 		phone.call(new Call(LocalDateTime.of(2018, 1, 2, 12, 10, 0),
 							LocalDateTime.of(2018, 1, 2, 12, 11, 0)));
 
-		assertThat(phone.calculateFee()).isEqualTo(Money.wons(66));
+		assertThat(phone.calculateFee()).isEqualTo(Money.wons(60));
 	}
 
 	@Test

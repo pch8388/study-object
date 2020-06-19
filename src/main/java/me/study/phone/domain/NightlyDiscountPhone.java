@@ -8,24 +8,22 @@ public class NightlyDiscountPhone extends Phone {
 	private static final int LATE_NIGHT_HOUR = 22;
 
 	private Money nightlyAmount;
+	private Money regularAmount;
+	private Duration seconds;
+	private double taxRate;
 
 	public NightlyDiscountPhone(Money nightlyAmount, Money regularAmount,
-	                            Duration seconds, double taxRate) {
-		super(regularAmount, seconds, taxRate);
+	                            Duration seconds) {
 		this.nightlyAmount = nightlyAmount;
+		this.regularAmount = regularAmount;
+		this.seconds = seconds;
 	}
 
-	public Money calculateFee() {
-		Money result = super.calculateFee();
-
-		Money nightlyFee = Money.ZERO;
-		for (Call call : getCalls()) {
-			if (call.getFrom().getHour() >= LATE_NIGHT_HOUR) {
-				nightlyFee = result.plus(
-					nightlyAmount.times(call.getDuration().getSeconds() / getSeconds().getSeconds()));
-			}
+	@Override
+	protected Money calculateCallFee(Call call) {
+		if (call.getFrom().getHour() >= LATE_NIGHT_HOUR) {
+			return nightlyAmount.times(call.getDuration().getSeconds() / seconds.getSeconds());
 		}
-
-		return result.minus(nightlyFee);
+		return regularAmount.times(call.getDuration().getSeconds() / seconds.getSeconds());
 	}
 }

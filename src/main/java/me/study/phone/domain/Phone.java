@@ -2,45 +2,27 @@ package me.study.phone.domain;
 
 import me.study.movie.domain.Money;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Phone {
-	private Money amount;
-	private Duration seconds;
-	private List<Call> calls = new ArrayList<>();
-	private double taxRate;
+public abstract class Phone {
 
-	public Phone(Money amount, Duration seconds, double taxRate) {
-		this.amount = amount;
-		this.seconds = seconds;
-		this.taxRate = taxRate;
-	}
+	private List<Call> calls = new ArrayList<>();
 
 	public void call(Call call) {
-		calls.add(call);
-	}
-
-	public List<Call> getCalls() {
-		return calls;
-	}
-
-	public Money getAmount() {
-		return amount;
-	}
-
-	public Duration getSeconds() {
-		return seconds;
+		this.calls.add(call);
 	}
 
 	public Money calculateFee() {
 		Money result = Money.ZERO;
 
 		for (Call call : calls) {
-			result = result.plus(amount.times(call.getDuration().getSeconds() / seconds.getSeconds()));
+			result = result.plus(calculateCallFee(call));
 		}
 
-		return result.plus(result.times(taxRate));
+		return result;
 	}
+
+	protected abstract Money calculateCallFee(Call call);
+
 }
