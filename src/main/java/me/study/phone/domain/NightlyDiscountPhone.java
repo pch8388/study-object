@@ -13,7 +13,8 @@ public class NightlyDiscountPhone extends Phone {
 	private double taxRate;
 
 	public NightlyDiscountPhone(Money nightlyAmount, Money regularAmount,
-	                            Duration seconds) {
+	                            Duration seconds, double taxRate) {
+		super(taxRate);
 		this.nightlyAmount = nightlyAmount;
 		this.regularAmount = regularAmount;
 		this.seconds = seconds;
